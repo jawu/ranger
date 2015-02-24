@@ -18,13 +18,13 @@
                 }else {
                     var ranArr = [];
                     for (var i = 0; i < rangeArray.length; i++) {
-                        ranArr[i] = parseInt(rangeArray[i]);
+                        ranArr[i] = parseFloat(rangeArray[i]);
                     }
                     ranArr.sort(function(a, b){return a-b});
                     element.value = ranArr[0];
                     element.setAttribute('min', ranArr[0]);
                     element.setAttribute('max', ranArr[ranArr.length - 1]);
-                    element.setAttribute('step', "1");
+                    element.setAttribute('step', "0.01");
                     var datalist = document.createElement('datalist');
                     datalist.id = element.id + "-datalist";
                     for (var i = 0; i < ranArr.length; i++) {
@@ -37,6 +37,8 @@
                         var output = document.querySelector(outputSelector);
                         if (output === null) {
                             console.log("Rangerer wasn't able to find the given output element '" + outputSelector + "' -> output will be dismissed.");
+                        }else {
+                            output.innerHTML = element.value;
                         }
                     }
 
