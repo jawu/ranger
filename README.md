@@ -10,10 +10,12 @@ Just include the js file and call Rangerer.range(inputSelector, rangeArray, outp
 
 Selectors are css selectors. outputSelector is optional if you want to show the value somewhere.
 ```javascript
-<input type="range" id="input-id" />
-<div id="output-id">Here goes the value</div>
+<script type="text/javascript" src="rangerer.js"></script>
+
+<input type="range" id="demo" />
+<div id="output">Here goes the value</div>
 
 <script type="text/javascript">
-	Rangerer.range("#input-id", [1, 2, 3, 50, 100], "#output-id");
+	Rangerer.range("#demo", [0, 10, 50, 100], "#output");
 </script>
 ```
