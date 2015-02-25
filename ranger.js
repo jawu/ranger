@@ -1,17 +1,17 @@
 (function(window){
     'use strict';
-    function define_rangerer() {
-        var Rangerer = {};
+    function define_ranger() {
+        var Ranger = {};
         var version = "0.01";
 
-        Rangerer.version = function() {
-            console.log("Rangerer Version " + version);
+        Ranger.version = function() {
+            console.log("Ranger Version " + version);
         };
 
-        Rangerer.range = function(elementSelector, rangeArray, outputSelector) {
+        Ranger.bind = function(elementSelector, rangeArray, outputSelector) {
             var element = document.querySelector(elementSelector);
             if (element === null) {
-                console.log("Rangerer wasn't able to find the given element '" + elementSelector + "' :(");
+                console.log("Ranger wasn't able to find the given element '" + elementSelector + "' :(");
             }else {
                 if (!(element.nodeName === "INPUT") || !(element.getAttribute("type").toLowerCase() === "range")) {
                     console.log("The given element is not an input element of type range!")
@@ -36,7 +36,7 @@
                     if (outputSelector !== undefined) {
                         var output = document.querySelector(outputSelector);
                         if (output === null) {
-                            console.log("Rangerer wasn't able to find the given output element '" + outputSelector + "' -> output will be dismissed.");
+                            console.log("Ranger wasn't able to find the given output element '" + outputSelector + "' -> output will be dismissed.");
                         }else {
                             output.innerHTML = element.value;
                         }
@@ -59,9 +59,9 @@
                 }
             }
         };
-        return Rangerer;
+        return Ranger;
     }
-    if (typeof(Rangerer) === 'undefined'){
-        window.Rangerer = define_rangerer();
+    if (typeof(Ranger) === 'undefined'){
+        window.Ranger = define_ranger();
     }
 })(window);
