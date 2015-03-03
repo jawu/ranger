@@ -26,7 +26,6 @@
             }
             ranArr.sort(function(a, b){return a-b});
             // add attributes to the element
-            element.value = ranArr[0];
             element.setAttribute('min', ranArr[0]);
             element.setAttribute('max', ranArr[ranArr.length - 1]);
             element.setAttribute('step', "0.01");
@@ -37,6 +36,7 @@
             }
             element.parentNode.insertBefore(datalist, element.nextSibling);
             element.setAttribute('list', datalist.id);
+            element.value = ranArr[0];
             // check output element
             if (outputSelector !== undefined) {
                 var output = document.querySelector(outputSelector);
